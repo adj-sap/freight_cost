@@ -1,0 +1,7 @@
+
+---
+spring:
+  sql.init.schema-locations: classpath:schema-h2.sql
+  config.activate.on-profile: default
+cds:
+  datasource.auto-config.enabled: false
