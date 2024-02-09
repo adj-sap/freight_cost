@@ -1,3 +1,1 @@
-chargeType_chargeType;freightCostParent_ID;chargeTypeDescription;logisticalReference;chargeCalculationLevel_code;finalAmountInRateCurrency;rateAmountInRateCurrency;rateCurrency_code;pricePerUnit;pricePerUnitUoM_code;logisticalQuantity;logisticalQuantityUnitOfMeasure_code
-BASE;95c99890-b403-4431-843f-cb87aa445143;76c99890-b403-4431-843f-cb87aa445143;;;02;500;0;001;2.5;Kg;1000;Kg
-FB00;95c99890-b403-4431-843f-cb87aa445143;76c99890-b403-4431-843f-cb87aa445143;;;02;2000.00;2.5;001;2.5;Kg;1000;Kg
+ID,createdAt,createdBy,modifiedAt,modifiedBy,chargeType_chargeType,freightCostParent_ID,chargeTypeDescription,logisticalReference,chargeCalculationLevel_code,finalAmountInRateCurrency,rateAmountInRateCurrency,rateCurrency_code,pricePerUnit,pricePerUnitUoM_code,logisticalQuantity,logisticalQuantityUnitOfMeasure_code

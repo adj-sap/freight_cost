@@ -1,8 +1,16 @@
 
-DROP VIEW IF EXISTS localized_fr_CostService_FreightCosts;
-DROP VIEW IF EXISTS localized_de_CostService_FreightCosts;
+DROP VIEW IF EXISTS localized_fr_CostService_ChargeType;
+DROP VIEW IF EXISTS localized_de_CostService_ChargeType;
 DROP VIEW IF EXISTS localized_fr_CostService_FreightCostItems;
 DROP VIEW IF EXISTS localized_de_CostService_FreightCostItems;
+DROP VIEW IF EXISTS localized_fr_CostService_FreightCosts;
+DROP VIEW IF EXISTS localized_de_CostService_FreightCosts;
+DROP VIEW IF EXISTS localized_fr_CostService_ChargeSignIndicators;
+DROP VIEW IF EXISTS localized_de_CostService_ChargeSignIndicators;
+DROP VIEW IF EXISTS localized_fr_CostService_ChargeValueIndicators;
+DROP VIEW IF EXISTS localized_de_CostService_ChargeValueIndicators;
+DROP VIEW IF EXISTS localized_fr_CostService_ChargeCategories;
+DROP VIEW IF EXISTS localized_de_CostService_ChargeCategories;
 DROP VIEW IF EXISTS localized_fr_CostService_UnitOfMeasure;
 DROP VIEW IF EXISTS localized_de_CostService_UnitOfMeasure;
 DROP VIEW IF EXISTS localized_fr_CostService_ChargeCalculationLevels;
@@ -31,8 +39,12 @@ DROP VIEW IF EXISTS localized_fr_com_sap_ngl_common_ChargeCalculationLevels;
 DROP VIEW IF EXISTS localized_de_com_sap_ngl_common_ChargeCalculationLevels;
 DROP VIEW IF EXISTS localized_fr_com_sap_ngl_common_hostDocumentTypes;
 DROP VIEW IF EXISTS localized_de_com_sap_ngl_common_hostDocumentTypes;
-DROP VIEW IF EXISTS localized_CostService_FreightCosts;
+DROP VIEW IF EXISTS localized_CostService_ChargeType;
 DROP VIEW IF EXISTS localized_CostService_FreightCostItems;
+DROP VIEW IF EXISTS localized_CostService_FreightCosts;
+DROP VIEW IF EXISTS localized_CostService_ChargeSignIndicators;
+DROP VIEW IF EXISTS localized_CostService_ChargeValueIndicators;
+DROP VIEW IF EXISTS localized_CostService_ChargeCategories;
 DROP VIEW IF EXISTS localized_CostService_UnitOfMeasure;
 DROP VIEW IF EXISTS localized_CostService_ChargeCalculationLevels;
 DROP VIEW IF EXISTS localized_CostService_Currencies;
@@ -48,14 +60,21 @@ DROP VIEW IF EXISTS localized_com_sap_ngl_common_ChargeSignIndicators;
 DROP VIEW IF EXISTS localized_com_sap_ngl_common_ChargeCategories;
 DROP VIEW IF EXISTS localized_com_sap_ngl_common_ChargeCalculationLevels;
 DROP VIEW IF EXISTS localized_com_sap_ngl_common_hostDocumentTypes;
+DROP VIEW IF EXISTS CostService_ChargeSignIndicators_texts;
+DROP VIEW IF EXISTS CostService_ChargeValueIndicators_texts;
+DROP VIEW IF EXISTS CostService_ChargeCategories_texts;
 DROP VIEW IF EXISTS CostService_UnitOfMeasure_texts;
 DROP VIEW IF EXISTS CostService_ChargeCalculationLevels_texts;
 DROP VIEW IF EXISTS CostService_Currencies_texts;
 DROP VIEW IF EXISTS CostService_hostDocumentTypes_texts;
+DROP VIEW IF EXISTS CostService_ChargeSignIndicators;
+DROP VIEW IF EXISTS CostService_ChargeValueIndicators;
+DROP VIEW IF EXISTS CostService_ChargeCategories;
 DROP VIEW IF EXISTS CostService_UnitOfMeasure;
 DROP VIEW IF EXISTS CostService_ChargeCalculationLevels;
 DROP VIEW IF EXISTS CostService_Currencies;
 DROP VIEW IF EXISTS CostService_hostDocumentTypes;
+DROP VIEW IF EXISTS CostService_ChargeType;
 DROP VIEW IF EXISTS CostService_FreightCostItems;
 DROP VIEW IF EXISTS CostService_FreightCosts;
 DROP TABLE IF EXISTS CostService_FreightCostItems_drafts;
@@ -323,6 +342,19 @@ CREATE VIEW CostService_FreightCostItems AS SELECT
   FreightCostItems_0.logisticalQuantityUnitOfMeasure_code
 FROM com_sap_ngl_FreightCostItems AS FreightCostItems_0; 
 
+CREATE VIEW CostService_ChargeType AS SELECT
+  ChargeType_0.createdAt,
+  ChargeType_0.createdBy,
+  ChargeType_0.modifiedAt,
+  ChargeType_0.modifiedBy,
+  ChargeType_0.chargeType,
+  ChargeType_0.chargeTypeDescription,
+  ChargeType_0.chargeCategory_code,
+  ChargeType_0.chargeValueIndicator_code,
+  ChargeType_0.chargeSignIndicator_code,
+  ChargeType_0.chargeIsInactive
+FROM com_sap_ngl_ChargeType AS ChargeType_0; 
+
 CREATE VIEW CostService_hostDocumentTypes AS SELECT
   hostDocumentTypes_0.name,
   hostDocumentTypes_0.descr,
@@ -348,6 +380,24 @@ CREATE VIEW CostService_UnitOfMeasure AS SELECT
   UnitOfMeasure_0.descr,
   UnitOfMeasure_0.code
 FROM com_sap_ngl_common_UnitOfMeasure AS UnitOfMeasure_0; 
+
+CREATE VIEW CostService_ChargeCategories AS SELECT
+  ChargeCategories_0.name,
+  ChargeCategories_0.descr,
+  ChargeCategories_0.code
+FROM com_sap_ngl_common_ChargeCategories AS ChargeCategories_0; 
+
+CREATE VIEW CostService_ChargeValueIndicators AS SELECT
+  ChargeValueIndicators_0.name,
+  ChargeValueIndicators_0.descr,
+  ChargeValueIndicators_0.code
+FROM com_sap_ngl_common_ChargeValueIndicators AS ChargeValueIndicators_0; 
+
+CREATE VIEW CostService_ChargeSignIndicators AS SELECT
+  ChargeSignIndicators_0.name,
+  ChargeSignIndicators_0.descr,
+  ChargeSignIndicators_0.code
+FROM com_sap_ngl_common_ChargeSignIndicators AS ChargeSignIndicators_0; 
 
 CREATE VIEW CostService_hostDocumentTypes_texts AS SELECT
   texts_0.locale,
@@ -376,6 +426,27 @@ CREATE VIEW CostService_UnitOfMeasure_texts AS SELECT
   texts_0.descr,
   texts_0.code
 FROM com_sap_ngl_common_UnitOfMeasure_texts AS texts_0; 
+
+CREATE VIEW CostService_ChargeCategories_texts AS SELECT
+  texts_0.locale,
+  texts_0.name,
+  texts_0.descr,
+  texts_0.code
+FROM com_sap_ngl_common_ChargeCategories_texts AS texts_0; 
+
+CREATE VIEW CostService_ChargeValueIndicators_texts AS SELECT
+  texts_0.locale,
+  texts_0.name,
+  texts_0.descr,
+  texts_0.code
+FROM com_sap_ngl_common_ChargeValueIndicators_texts AS texts_0; 
+
+CREATE VIEW CostService_ChargeSignIndicators_texts AS SELECT
+  texts_0.locale,
+  texts_0.name,
+  texts_0.descr,
+  texts_0.code
+FROM com_sap_ngl_common_ChargeSignIndicators_texts AS texts_0; 
 
 CREATE VIEW localized_com_sap_ngl_common_hostDocumentTypes AS SELECT
   coalesce(localized_1.name, L_0.name) AS name,
@@ -504,6 +575,37 @@ CREATE VIEW localized_CostService_UnitOfMeasure AS SELECT
   UnitOfMeasure_0.code
 FROM localized_com_sap_ngl_common_UnitOfMeasure AS UnitOfMeasure_0; 
 
+CREATE VIEW localized_CostService_ChargeCategories AS SELECT
+  ChargeCategories_0.name,
+  ChargeCategories_0.descr,
+  ChargeCategories_0.code
+FROM localized_com_sap_ngl_common_ChargeCategories AS ChargeCategories_0; 
+
+CREATE VIEW localized_CostService_ChargeValueIndicators AS SELECT
+  ChargeValueIndicators_0.name,
+  ChargeValueIndicators_0.descr,
+  ChargeValueIndicators_0.code
+FROM localized_com_sap_ngl_common_ChargeValueIndicators AS ChargeValueIndicators_0; 
+
+CREATE VIEW localized_CostService_ChargeSignIndicators AS SELECT
+  ChargeSignIndicators_0.name,
+  ChargeSignIndicators_0.descr,
+  ChargeSignIndicators_0.code
+FROM localized_com_sap_ngl_common_ChargeSignIndicators AS ChargeSignIndicators_0; 
+
+CREATE VIEW localized_CostService_FreightCosts AS SELECT
+  FreightCosts_0.ID,
+  FreightCosts_0.createdAt,
+  FreightCosts_0.createdBy,
+  FreightCosts_0.modifiedAt,
+  FreightCosts_0.modifiedBy,
+  FreightCosts_0.hostDocumentType_code,
+  FreightCosts_0.hostDocumentUUID,
+  FreightCosts_0.grossAmountInDocumentCurrency,
+  FreightCosts_0.netAmountInDocumentCurrency,
+  FreightCosts_0.documentCurrency_code
+FROM localized_com_sap_ngl_FreightCosts AS FreightCosts_0; 
+
 CREATE VIEW localized_CostService_FreightCostItems AS SELECT
   FreightCostItems_0.ID,
   FreightCostItems_0.createdAt,
@@ -524,18 +626,18 @@ CREATE VIEW localized_CostService_FreightCostItems AS SELECT
   FreightCostItems_0.logisticalQuantityUnitOfMeasure_code
 FROM localized_com_sap_ngl_FreightCostItems AS FreightCostItems_0; 
 
-CREATE VIEW localized_CostService_FreightCosts AS SELECT
-  FreightCosts_0.ID,
-  FreightCosts_0.createdAt,
-  FreightCosts_0.createdBy,
-  FreightCosts_0.modifiedAt,
-  FreightCosts_0.modifiedBy,
-  FreightCosts_0.hostDocumentType_code,
-  FreightCosts_0.hostDocumentUUID,
-  FreightCosts_0.grossAmountInDocumentCurrency,
-  FreightCosts_0.netAmountInDocumentCurrency,
-  FreightCosts_0.documentCurrency_code
-FROM localized_com_sap_ngl_FreightCosts AS FreightCosts_0; 
+CREATE VIEW localized_CostService_ChargeType AS SELECT
+  ChargeType_0.createdAt,
+  ChargeType_0.createdBy,
+  ChargeType_0.modifiedAt,
+  ChargeType_0.modifiedBy,
+  ChargeType_0.chargeType,
+  ChargeType_0.chargeTypeDescription,
+  ChargeType_0.chargeCategory_code,
+  ChargeType_0.chargeValueIndicator_code,
+  ChargeType_0.chargeSignIndicator_code,
+  ChargeType_0.chargeIsInactive
+FROM localized_com_sap_ngl_ChargeType AS ChargeType_0; 
 
 CREATE VIEW localized_de_com_sap_ngl_common_hostDocumentTypes AS SELECT
   coalesce(localized_de_1.name, L_0.name) AS name,
@@ -769,6 +871,68 @@ CREATE VIEW localized_fr_CostService_UnitOfMeasure AS SELECT
   UnitOfMeasure_0.code
 FROM localized_fr_com_sap_ngl_common_UnitOfMeasure AS UnitOfMeasure_0; 
 
+CREATE VIEW localized_de_CostService_ChargeCategories AS SELECT
+  ChargeCategories_0.name,
+  ChargeCategories_0.descr,
+  ChargeCategories_0.code
+FROM localized_de_com_sap_ngl_common_ChargeCategories AS ChargeCategories_0; 
+
+CREATE VIEW localized_fr_CostService_ChargeCategories AS SELECT
+  ChargeCategories_0.name,
+  ChargeCategories_0.descr,
+  ChargeCategories_0.code
+FROM localized_fr_com_sap_ngl_common_ChargeCategories AS ChargeCategories_0; 
+
+CREATE VIEW localized_de_CostService_ChargeValueIndicators AS SELECT
+  ChargeValueIndicators_0.name,
+  ChargeValueIndicators_0.descr,
+  ChargeValueIndicators_0.code
+FROM localized_de_com_sap_ngl_common_ChargeValueIndicators AS ChargeValueIndicators_0; 
+
+CREATE VIEW localized_fr_CostService_ChargeValueIndicators AS SELECT
+  ChargeValueIndicators_0.name,
+  ChargeValueIndicators_0.descr,
+  ChargeValueIndicators_0.code
+FROM localized_fr_com_sap_ngl_common_ChargeValueIndicators AS ChargeValueIndicators_0; 
+
+CREATE VIEW localized_de_CostService_ChargeSignIndicators AS SELECT
+  ChargeSignIndicators_0.name,
+  ChargeSignIndicators_0.descr,
+  ChargeSignIndicators_0.code
+FROM localized_de_com_sap_ngl_common_ChargeSignIndicators AS ChargeSignIndicators_0; 
+
+CREATE VIEW localized_fr_CostService_ChargeSignIndicators AS SELECT
+  ChargeSignIndicators_0.name,
+  ChargeSignIndicators_0.descr,
+  ChargeSignIndicators_0.code
+FROM localized_fr_com_sap_ngl_common_ChargeSignIndicators AS ChargeSignIndicators_0; 
+
+CREATE VIEW localized_de_CostService_FreightCosts AS SELECT
+  FreightCosts_0.ID,
+  FreightCosts_0.createdAt,
+  FreightCosts_0.createdBy,
+  FreightCosts_0.modifiedAt,
+  FreightCosts_0.modifiedBy,
+  FreightCosts_0.hostDocumentType_code,
+  FreightCosts_0.hostDocumentUUID,
+  FreightCosts_0.grossAmountInDocumentCurrency,
+  FreightCosts_0.netAmountInDocumentCurrency,
+  FreightCosts_0.documentCurrency_code
+FROM localized_de_com_sap_ngl_FreightCosts AS FreightCosts_0; 
+
+CREATE VIEW localized_fr_CostService_FreightCosts AS SELECT
+  FreightCosts_0.ID,
+  FreightCosts_0.createdAt,
+  FreightCosts_0.createdBy,
+  FreightCosts_0.modifiedAt,
+  FreightCosts_0.modifiedBy,
+  FreightCosts_0.hostDocumentType_code,
+  FreightCosts_0.hostDocumentUUID,
+  FreightCosts_0.grossAmountInDocumentCurrency,
+  FreightCosts_0.netAmountInDocumentCurrency,
+  FreightCosts_0.documentCurrency_code
+FROM localized_fr_com_sap_ngl_FreightCosts AS FreightCosts_0; 
+
 CREATE VIEW localized_de_CostService_FreightCostItems AS SELECT
   FreightCostItems_0.ID,
   FreightCostItems_0.createdAt,
@@ -809,29 +973,29 @@ CREATE VIEW localized_fr_CostService_FreightCostItems AS SELECT
   FreightCostItems_0.logisticalQuantityUnitOfMeasure_code
 FROM localized_fr_com_sap_ngl_FreightCostItems AS FreightCostItems_0; 
 
-CREATE VIEW localized_de_CostService_FreightCosts AS SELECT
-  FreightCosts_0.ID,
-  FreightCosts_0.createdAt,
-  FreightCosts_0.createdBy,
-  FreightCosts_0.modifiedAt,
-  FreightCosts_0.modifiedBy,
-  FreightCosts_0.hostDocumentType_code,
-  FreightCosts_0.hostDocumentUUID,
-  FreightCosts_0.grossAmountInDocumentCurrency,
-  FreightCosts_0.netAmountInDocumentCurrency,
-  FreightCosts_0.documentCurrency_code
-FROM localized_de_com_sap_ngl_FreightCosts AS FreightCosts_0; 
+CREATE VIEW localized_de_CostService_ChargeType AS SELECT
+  ChargeType_0.createdAt,
+  ChargeType_0.createdBy,
+  ChargeType_0.modifiedAt,
+  ChargeType_0.modifiedBy,
+  ChargeType_0.chargeType,
+  ChargeType_0.chargeTypeDescription,
+  ChargeType_0.chargeCategory_code,
+  ChargeType_0.chargeValueIndicator_code,
+  ChargeType_0.chargeSignIndicator_code,
+  ChargeType_0.chargeIsInactive
+FROM localized_de_com_sap_ngl_ChargeType AS ChargeType_0; 
 
-CREATE VIEW localized_fr_CostService_FreightCosts AS SELECT
-  FreightCosts_0.ID,
-  FreightCosts_0.createdAt,
-  FreightCosts_0.createdBy,
-  FreightCosts_0.modifiedAt,
-  FreightCosts_0.modifiedBy,
-  FreightCosts_0.hostDocumentType_code,
-  FreightCosts_0.hostDocumentUUID,
-  FreightCosts_0.grossAmountInDocumentCurrency,
-  FreightCosts_0.netAmountInDocumentCurrency,
-  FreightCosts_0.documentCurrency_code
-FROM localized_fr_com_sap_ngl_FreightCosts AS FreightCosts_0; 
+CREATE VIEW localized_fr_CostService_ChargeType AS SELECT
+  ChargeType_0.createdAt,
+  ChargeType_0.createdBy,
+  ChargeType_0.modifiedAt,
+  ChargeType_0.modifiedBy,
+  ChargeType_0.chargeType,
+  ChargeType_0.chargeTypeDescription,
+  ChargeType_0.chargeCategory_code,
+  ChargeType_0.chargeValueIndicator_code,
+  ChargeType_0.chargeSignIndicator_code,
+  ChargeType_0.chargeIsInactive
+FROM localized_fr_com_sap_ngl_ChargeType AS ChargeType_0; 
 
