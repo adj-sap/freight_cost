@@ -1,4 +1,0 @@
-parent_ID;ID;itemNumber;chargeType;chargeTypeDescription;chargeCalculationLevel;rate;quantity;finalAmount;currency_code;unitOfMeasure;
-20466922-7d57-4e76-b14c-e53fd97dcb11;20466921-7d57-4e76-b14c-e53fd97dcb11;100;FB01;Basic Charge;Stage;30.50;3;91.50;EUR;KG;
-20466922-7d57-4e76-b14c-e53fd97dcb11;20466921-7d57-4e76-b14c-e53fd97dcb12;110;SF04;Loading Charge;Item;15.50;4;62.00;EUR;ML;
-20466922-7d57-4e76-b14c-e53fd97dcb12;20466921-7d57-4e76-b14c-e53fd97dcb13;100;TM05;Loading Charge;Header;124.5;1;124.5;USD;KM;

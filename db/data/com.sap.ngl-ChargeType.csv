@@ -1,0 +1,4 @@
+chargeType;chargeTypeDescription;chargeCategory_code;chargeValueIndicator_code;chargeSignIndicator_code;chargeIsInactive
+BASE;Base price;001;A;+;false
+FSC;10% on Base price;002;A;+;false
+FB00;based on weight 10 USD per KG;002;A;+;false

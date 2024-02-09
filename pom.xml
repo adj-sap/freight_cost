@@ -34,8 +34,6 @@
   <modules>
             
     <module>srv</module>
-          
-    <module>cost-service</module>
       
   </modules>
       

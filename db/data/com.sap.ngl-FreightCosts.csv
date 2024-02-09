@@ -1,3 +1,3 @@
-ID;hostDocument;hostDocumentType;grossAmount;netAmount;currency_code;createdBy;createdAt;
+ID;hostDocumentUUID;hostDocumentType_code;grossAmountInDocumentCurrency;netAmountInDocumentCurrency;documentCurrency_code;createdBy;createdAt;
 20466922-7d57-4e76-b14c-e53fd97dcb11;9100000001;Road;100;80.25;EUR;Meier;2021-10-20T19:54:13Z;
 20466922-7d57-4e76-b14c-e53fd97dcb12;9100000002;Rail;500;432.35;USD;Adarsh;2021-10-20T19:54:13Z;

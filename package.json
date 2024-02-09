@@ -14,10 +14,13 @@
       }
     }
   },
-  "sapux": [
-    "app/freight"
-  ],
   "devDependencies": {
-    "@sap/ux-specification": "^1.120.1"
+    "@sap/ux-specification": "^1.120.3"
+  },
+  "sapux": [
+    "app/project1"
+  ],
+  "dependencies": {
+    "@sap/cds-dk": "^7.6.0"
   }
 }

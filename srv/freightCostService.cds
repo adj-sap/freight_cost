@@ -1,11 +1,7 @@
 using com.sap.ngl as my from '../db/schema';
 
-@path: '/cost'
 service CostService {
-    entity FreightCosts as projection on my.FreightCosts
-    actions {
-        action acceptCharges();
-        action rejectCharges();
-    };
-    entity CostItems as projection on my.CostItems;
+    @odata.draft.enabled
+    entity FreightCosts as projection on my.FreightCosts;
+    entity FreightCostItems as projection on my.FreightCostItems;
 }
