@@ -22,10 +22,15 @@
 
 		<!-- ODATA PROTOCOL ADAPTER -->
 		<dependency>
-			<groupId>com.sap.cds</groupId>
-			<artifactId>cds-adapter-odata-v4</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+	<groupId>com.sap.cds</groupId>
+	<artifactId>cds-adapter-odata-v2</artifactId>
+	<scope>runtime</scope>
+</dependency>
+<dependency>
+	<groupId>com.sap.cds</groupId>
+	<artifactId>cds-adapter-odata-v4</artifactId>
+	<scope>runtime</scope>
+</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -45,7 +50,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.sap.cds</groupId>
-			<artifactId>cds-starter-cloudfoundry</artifactId>
+			<artifactId>cds-feature-remote-odata</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 
@@ -121,6 +127,7 @@
 							<commands>
 							    <command>build --for java</command>
 								<command>deploy --to sqlite --dry &gt; "${project.basedir}/src/main/resources/schema.sql</command>
+								<command>compile ${project.basedir} -s all -l all -2 edmx-v2 -o ${project.basedir}/src/main/resources/edmx/v2</command>
 							</commands>
 						</configuration>
 					</execution>

@@ -1,4 +1,4 @@
-namespace com.sap.ngl.common;
+namespace com.sap.dsc.lgm.common;
 
 
 using {sap.common.CodeList} from '@sap/cds/common';

@@ -1,6 +1,6 @@
-namespace com.sap.ngl;
+namespace com.sap.dsc.lgm.schema;
 
-using {com.sap.ngl.common as common} from './common';
+using {com.sap.dsc.lgm.common as common} from './common';
 using {
   cuid,
   managed,
@@ -40,3 +40,64 @@ entity ChargeType : managed {
         chargeSignIndicator   : common.chargeSignIndicator;
         chargeIsInactive      : Boolean;
 }
+
+annotate FreightCostItems with @(
+UI.LineItem:
+ 
+[
+    
+        {
+            $Type : 'UI.DataField',
+            Label : 'Charge Type',
+            Value : chargeType_chargeType,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Description',
+            Value : chargeTypeDescription,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Logistical Reference',
+            Value : logisticalReference,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Final Amount in Rate Currency',
+            Value : finalAmountInRateCurrency,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Rate Amount in Rate Currency',
+            Value : rateAmountInRateCurrency,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Rate Currency',
+            Value : rateCurrency_code,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Price Per Unit',
+            Value : pricePerUnit,
+        }
+]
+);
+ 
+annotate FreightCosts with @(
+   UI.FieldGroup #FreightCostFields : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : grossAmountInDocumentCurrency,
+                Label : 'Gross Amount',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : netAmountInDocumentCurrency,
+                Label : 'Net Amount ',
+            },
+        ],
+    }
+);

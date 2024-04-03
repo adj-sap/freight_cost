@@ -1,0 +1,2 @@
+ID,createdAt,createdBy,modifiedAt,modifiedBy,chargeType_chargeType,freightCostParent_ID,chargeTypeDescription,logisticalReference,chargeCalculationLevel_code,finalAmountInRateCurrency,rateAmountInRateCurrency,rateCurrency_code,pricePerUnit,pricePerUnitUoM_code,logisticalQuantity,logisticalQuantityUnitOfMeasure_code
+a7dba2b4-d967-4f74-a56d-65eaa3c98789,2019-07-01T00:00:00.000Z,alka,2019-07-01T00:00:00.000Z,alka,CHARGE,20466922-7d57-4e76-b14c-e53fd97dcb11,Charge for the freight,,02,100,50,USD,1,KG,5,PCS

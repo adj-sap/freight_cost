@@ -14,17 +14,18 @@ import com.sap.cds.ql.cqn.CqnSelect;
 import com.sap.cds.ql.cqn.CqnUpdate;
 import com.sap.cds.services.ErrorStatuses;
 import com.sap.cds.services.ServiceException;
+import com.sap.cds.services.cds.CdsReadEventContext;
 import com.sap.cds.services.cds.CqnService;
-import com.sap.cds.services.draft.DraftService;
 import com.sap.cds.services.handler.EventHandler;
 import com.sap.cds.services.handler.annotations.After;
+import com.sap.cds.services.handler.annotations.On;
 import com.sap.cds.services.handler.annotations.ServiceName;
 import com.sap.cds.services.persistence.PersistenceService;
 
-import cds.gen.costservice.*;
+import cds.gen.com.sap.dsc.lgm.service.costdomainservice.*;
 
 @Component
-@ServiceName(CostService_.CDS_NAME)
+@ServiceName(CostDomainService_.CDS_NAME)
 public class CostServiceHandler implements EventHandler {
     
     @Autowired
@@ -68,5 +69,15 @@ public class CostServiceHandler implements EventHandler {
                 calculateTotalCost(freightCost.getToFreightCostItem());
             }
         }
+    }
+
+    @On( entity = FreightCosts_.CDS_NAME)
+    public void readCarrierCharges(CdsReadEventContext context) {
+            logger.info("Read Event triggered for Cost Header");
+    }
+
+    @On( entity = FreightCostItems_.CDS_NAME)
+    public void readCostItems(CdsReadEventContext context) {
+            logger.info("Read Event triggered for Cost Item");
     }
 }
